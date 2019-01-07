@@ -22,9 +22,13 @@ module Echo
     end
 
     def token_header(token)
-      # Token is a URS token, as opposed to an ECHO token
-      token = "#{token}:#{@urs_client_id}" if token.present? && !token.include?('-')
-      token.present? ? {'Echo-Token' => "#{token}"} : {}
+      {'Echo-Token': ENV['cmr_echo_token']}
+      # TODO(aimee): Re-implement this code.
+      # Right now, MAAP CMR requires an admin token for search collection requests.
+      #
+      # # Token is a URS token, as opposed to an ECHO token
+      # token = "#{token}:#{@urs_client_id}" if token.present? && !token.include?('-')
+      # token.present? ? {'Echo-Token' => "#{token}"} : {}
     end
 
     def request(method, url, params, body, headers, options)
