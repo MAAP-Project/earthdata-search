@@ -5,9 +5,10 @@ describe 'Site misc' do
     load_page :search
   end
 
-  it 'displays the current NASA official' do
-    expect(page).to have_content('Stephen Berrick')
-  end
+  # Removed to be MAAP-specific
+  # it 'displays the current NASA official' do
+  #   expect(page).to have_content('Stephen Berrick')
+  # end
 
   it 'does not display the previous NASA official' do
     expect(page).to have_no_text('Andrew Mitchell')
