@@ -95,9 +95,10 @@ class CollectionsController < ApplicationController
       params['tag_key'] << "#{Rails.configuration.cmr_tag_namespace}.extra.gibs"
     end
 
-    if features['Near Real Time']
-      params = params.merge('collection_data_type' => 'NEAR_REAL_TIME')
-    end
+    # Removed for MAAP
+    # if features['Near Real Time']
+    #   params = params.merge('collection_data_type' => 'NEAR_REAL_TIME')
+    # end
 
     params['include_tags'] = ["#{Rails.configuration.cmr_tag_namespace}.*",
                               'org.ceos.wgiss.cwic.granules.prod'].join(',')
@@ -155,9 +156,10 @@ class CollectionsController < ApplicationController
         'applied' => false,
         'has_children' => true,
         'children' => [
-          { 'title' => 'Map Imagery', 'type' => 'filter', 'applied' => false, 'has_children' => false },
-          { 'title' => 'Near Real Time', 'type' => 'filter', 'applied' => false, 'has_children' => false },
-          { 'title' => 'Customizable', 'type' => 'filter', 'applied' => false, 'has_children' => false }
+          { 'title' => 'Map Imagery', 'type' => 'filter', 'applied' => false, 'has_children' => false }
+          # Removed for MAAP
+          # { 'title' => 'Near Real Time', 'type' => 'filter', 'applied' => false, 'has_children' => false },
+          # { 'title' => 'Customizable', 'type' => 'filter', 'applied' => false, 'has_children' => false }
         ]
       }
     ]
