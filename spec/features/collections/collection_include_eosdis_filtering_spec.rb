@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Collection include EOSDIS filtering' do
+describe 'Collection include EOSDIS filtering' do 
   context "when selecting a facet filter while searching collections with 'Include non-EOSDIS collections' filter unchecked" do
     before :all do
       load_page :search, facets: true, ac: true
