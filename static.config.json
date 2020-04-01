@@ -12,7 +12,7 @@
     "eosdisTagKey": "gov.nasa.eosdis",
     "defaultMaxOrderSize": 1000000,
     "defaultGranulesPerOrder": 2000,
-    "ummCollectionVersion": "1.13",
+    "ummCollectionVersion": "1.10",
     "ummGranuleVersion": "1.5",
     "ummServiceVersion": "1.2",
     "ummVariableVersion": "1.5",
@@ -69,12 +69,12 @@
         "client": "eed-edsc-test-serverless-client",
         "lambda": "eed-edsc-test-serverless-lambda"
       },
-      "cmrHost": "https://cmr.earthdata.nasa.gov",
-      "echoRestRoot": "https://cmr.earthdata.nasa.gov/legacy-services/rest",
+      "cmrHost": "https://cmr.maap-project.org",
+      "echoRestRoot": "https://cmr.maap-project.org/legacy-services/rest",
       "edlHost": "https://urs.earthdata.nasa.gov",
       "feedbackApp": "EdSearch",
       "regionHost": "https://fts.podaac.uat.earthdata.nasa.gov/",
-      "opensearchRoot": "https://cmr.earthdata.nasa.gov/opensearch",
+      "opensearchRoot": "https://cmr.maap-project.org/opensearch",
       "redirectUriPath": "/urs_callback"
     },
     "sit": {
@@ -111,13 +111,14 @@
         "client": "eed-edsc-prod-serverless-client",
         "lambda": "eed-edsc-prod-serverless-lambda"
       },
-      "cmrHost": "https://cmr.earthdata.nasa.gov",
-      "echoRestRoot": "https://cmr.earthdata.nasa.gov/legacy-services/rest",
+      "cmrHost": "https://cmr.maap-project.org",
+      "echoRestRoot": "https://cmr.maap-project.org/legacy-services/rest",
       "edlHost": "https://urs.earthdata.nasa.gov",
       "feedbackApp": "EdSearch",
       "regionHost": "https://fts.podaac.uat.earthdata.nasa.gov/",
-      "opensearchRoot": "https://cmr.earthdata.nasa.gov/opensearch",
+      "opensearchRoot": "https://cmr.maap-project.org/opensearch",
       "redirectUriPath": "/urs_callback"
     }
   }
 }
+

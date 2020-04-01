@@ -11,13 +11,8 @@ export const getUmmVersionHeaderPrefix = requestedConceptTypeVersion => (
 /**
  * Returns the full Accept header as a string
  */
-export const getUmmGranuleVersionHeader = () => {
-  const {
-    ummGranuleVersion
-  } = getApplicationConfig()
-
-  return getUmmVersionHeaderPrefix(ummGranuleVersion)
-}
+// Changed for MAAP
+export const getUmmGranuleVersionHeader = () => 'application/json'
 
 /**
  * Returns the full Accept header as a string

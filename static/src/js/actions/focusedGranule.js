@@ -25,7 +25,7 @@ export const getFocusedGranule = () => (dispatch, getState) => {
   if (allIds.indexOf(focusedGranule) !== -1) return null
 
   const requestObject = new GranuleConceptRequest(authToken)
-  const response = requestObject.search(focusedGranule, 'umm_json', { pretty: true })
+  const response = requestObject.search(focusedGranule, 'json', { pretty: true })
     .then((response) => {
       const { data } = response
 
