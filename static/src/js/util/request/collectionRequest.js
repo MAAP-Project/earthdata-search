@@ -155,9 +155,26 @@ export default class CollectionRequest extends Request {
       const w = getApplicationConfig().thumbnailSize.width
 
       if (collection.id) {
-        transformedCollection.thumbnail = collection.browse_flag
-          ? `${getEarthdataConfig(cmrEnv()).cmrHost}/browse-scaler/browse_images/datasets/${collection.id}?h=${h}&w=${w}`
-          : unavailableImg
+        let browseUrl
+
+        // Pick the first 'browse' link to use as the browseUrl
+        if (collection.links) {
+          collection.links.some((link) => {
+            if (link.rel.indexOf('browse') > -1) {
+              browseUrl = link.href
+              return true
+            }
+            return false
+          })
+        }
+
+        if (browseUrl) {
+          transformedCollection.thumbnail = browseUrl
+        } else if (collection.browse_flag) {
+          transformedCollection.thumbnail = `${getEarthdataConfig(cmrEnv()).cmrHost}/browse-scaler/browse_images/datasets/${collection.id}?h=${h}&w=${w}`
+        } else {
+          transformedCollection.thumbnail = unavailableImg
+        }
       }
 
       return transformedCollection

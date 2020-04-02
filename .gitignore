@@ -12,3 +12,4 @@ tmp
 
 cypress/screenshots
 cypress/videos
+npm-debug.log

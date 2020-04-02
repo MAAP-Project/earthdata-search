@@ -200,7 +200,7 @@ const GranuleResultsItem = ({
       element = (
         <img
           className="granule-results-item__thumb-image"
-          src={thumbnail}
+          src={browseUrl}
           height={thumbnailHeight}
           width={thumbnailWidth}
           alt={`Browse Image for ${title}`}
