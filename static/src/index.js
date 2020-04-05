@@ -2,10 +2,10 @@ import './js/util/polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import $ from 'jquery'
 import { isBrowserCompatible } from './js/util/isBrowserCompatible'
 
 import './css/main.scss'
-
 import App from './js/App'
 
 // Only bootstrap the app if the browser is compatible

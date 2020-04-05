@@ -1,5 +1,5 @@
 import Request from './request'
-import { getApplicationConfig, getEarthdataConfig, getEnvironmentConfig } from '../../../../../sharedUtils/config'
+import { getEarthdataConfig, getEnvironmentConfig } from '../../../../../sharedUtils/config'
 
 import { getTemporal } from '../edscDate'
 import { cmrEnv } from '../../../../../sharedUtils/cmrEnv'
@@ -88,26 +88,23 @@ export default class GranuleRequest extends Request {
 
       updatedGranule.formatted_temporal = getTemporal(granule.time_start, granule.time_end)
 
-      const h = getApplicationConfig().thumbnailSize.height
-      const w = getApplicationConfig().thumbnailSize.width
+      let browseUrl
+
+      // Pick the first 'browse' link to use as the browseUrl
+      granule.links.some((link) => {
+        if (link.rel.indexOf('browse') > -1) {
+          browseUrl = link.href
+          return true
+        }
+        return false
+      })
 
       if (granule.id) {
         // eslint-disable-next-line
-        updatedGranule.thumbnail = `${getEarthdataConfig(cmrEnv()).cmrHost}/browse-scaler/browse_images/granules/${granule.id}?h=${h}&w=${w}`
+        updatedGranule.thumbnail = browseUrl
       }
 
       if (granule.links && granule.links.length > 0) {
-        let browseUrl
-
-        // Pick the first 'browse' link to use as the browseUrl
-        granule.links.some((link) => {
-          if (link.rel.indexOf('browse') > -1) {
-            browseUrl = link.href
-            return true
-          }
-          return false
-        })
-
         updatedGranule.browse_url = browseUrl
       }
 
