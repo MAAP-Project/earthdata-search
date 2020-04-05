@@ -172,6 +172,7 @@ class SecondaryToolbar extends Component {
         href={`${apiHost}/login?cmr_env=${cmrEnvironment}&state=${encodeURIComponent(returnPath)}`}
         icon="lock"
         label="Login"
+        style={{ display: 'none' }}
       >
         Earthdata Login
       </Button>

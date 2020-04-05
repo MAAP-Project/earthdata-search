@@ -36,16 +36,6 @@ const Facets = (props) => {
         applied: featureFacets.mapImagery,
         title: 'Map Imagery',
         type: 'feature'
-      },
-      {
-        applied: featureFacets.nearRealTime,
-        title: 'Near Real Time',
-        type: 'feature'
-      },
-      {
-        applied: featureFacets.customizable,
-        title: 'Customizable',
-        type: 'feature'
       }
     ]
   }

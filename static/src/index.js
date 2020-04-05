@@ -26,6 +26,7 @@ if (isBrowserCompatible()) {
           setTimeout(() => {
             rootElement.classList.remove('root--loading')
             rootElement.classList.remove('root--loading-fade')
+            $('#daac-links-header').hide()
           }, 150)
         })
       }

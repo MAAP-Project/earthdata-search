@@ -84,7 +84,7 @@ const GranuleResultsActions = ({
               variant="full"
               label="Download All"
               disabled
-              style={{ pointerEvents: 'none' }}
+              style={{ pointerEvents: 'none', display: 'none' }}
             >
               Download All
             </Button>
@@ -137,6 +137,7 @@ const GranuleResultsActions = ({
           icon="download"
           variant="full"
           label="Download All"
+          style={{ display: 'none' }}
           disabled={granuleCount === 0 || initialLoading}
         >
           Download All

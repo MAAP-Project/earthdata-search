@@ -141,6 +141,7 @@ const CollectionResultsHeader = ({
                       checked={isNonEosdisChecked}
                       id="input__non-eosdis"
                       label="Include non-EOSDIS collections"
+                      style={{ display: 'none' }}
                       onChange={event => handleCheckboxCheck(event)}
                     />
                   </Col>

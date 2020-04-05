@@ -40,9 +40,6 @@ class FooterContainer extends Component {
                 {`Search Time: ${loadTimeInSeconds}s`}
               </span>
             ) }
-            <span className="footer__info-bit footer__info-bit--emph">
-              NASA Official: Stephen Berrick
-            </span>
             <span className="footer__info-bit">
               <a
                 className="footer__info-link"

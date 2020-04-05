@@ -17,6 +17,9 @@ npm run build
 These files are then deployed to S3 using:
 
 ```bash
+# For deployment to MAAP SIT (systems integration)
+serverless client deploy --stage maap-sit
+# For deployment to MAAP PROD
 serverless client deploy --stage maap
 ```
 
