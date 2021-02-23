@@ -29,12 +29,17 @@ serverless client deploy --stage maap-prod
 
 The earthdata-search-maap (UAH), earthdata-search-maap-uat, earthdata-search-maap-prod buckets are already configured for static website hosting.
 
-## DNS Configuration
+## How to Configure DNS for `search.*.maap-project.org`
 
-search.uat.maap-project.org and search.ops.maap-project.org should already be properly configured in UAH Route 53 DNS Hosted Zones to point to a cloudfront distribution for their respective buckets. The steps to configuring a new subdomain, say for `search.uat.maap-project.org`, for future reference are as follows:
+`https://search.uat.maap-project.org` and `https://search.ops.maap-project.org` are already configured in UAH's Route 53 DNS Hosted Zones, pointing to a cloudfront distribution for their respective buckets.
 
-* The corresponding S3 bucket, earthdata-search-maap-uat, has static website hosting enabled and permissions set for public access.
-* There is a validated SSL Certificate for `*.uat.maap-project.org`
-* There is a cloudfront distribution with Origin Name pointing to the bucket URL and configured with the SSL certificate
-* There is an `A` name record in the maap-project.org Route53 hosted zone which points to the cloudfront distribution URL as an `Alias`
+The steps for configuring a new subdomain, say for `search.uat.maap-project.org`, for future reference are as follows:
+
+1. The S3 bucket `earthdata-search-maap-uat` has static website hosting enabled and permissions set for public access.
+2. There is a validated SSL Certificate for `*.uat.maap-project.org`
+3. There is an AWS Cloudfront Distribution with:
+    * Origin Name of the bucket URL: `earthdata-search-maap-uat.s3-website-us-west-2.amazonaws.com`
+    * Alternate Domain Names (CNAMEs):	`search.uat.maap-project.org`
+    * SSL Certificate:	`search.uat.maap-project.org (XXX-XXXX-XXXX-XXX-UUID)`
+4. There is an `A` name record in the `maap-project.org` Route53 hosted zone which points to the Cloudfront Distribution URL as an `Alias`, e.g. `d31rmtr53wrle7.cloudfront.net`.
 
